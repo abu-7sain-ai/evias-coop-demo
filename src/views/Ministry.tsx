@@ -38,7 +38,7 @@ export function Ministry() {
                 return (
                   <tr key={row.m}>
                     <td className="whitespace-nowrap">{t(`ministry.metrics.${row.m}`)}</td>
-                    {d.coops.map((c) => { const v = row.coops_ranked_worst_first.find((x) => x.coop_id === c.id)!; const isWorst = v.coop_id === worst.coop_id && v.value != null && (worst.vs_other_coops ?? 1) > 1.3 && row.m !== "sales";
+                    {d.coops.map((c) => { const v = row.coops_ranked_worst_first.find((x) => x.coop_id === c.id)!; const r = worst.vs_other_coops ?? 1; const isWorst = v.coop_id === worst.coop_id && v.value != null && row.m !== "sales" && (row.down_is_good ? r > 1.3 : r < 0.85);
                       return <td key={c.id} className={cx("text-end num whitespace-nowrap", isWorst && "text-bad font-semibold")}>{fmtMetric(row.m, v.value, lang)}{isWorst && v.vs_other_coops ? <span className="ms-1 text-xs">(×{fmtNum(v.vs_other_coops, 1)})</span> : null}</td>; })}
                     <td className="text-end num text-text-2 whitespace-nowrap">{fmtMetric(row.m, row.network_average, lang)}</td>
                   </tr>

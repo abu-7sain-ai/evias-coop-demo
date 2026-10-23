@@ -7,7 +7,7 @@
 import { createServer } from "node:http";
 import { existsSync, mkdtempSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
-import { dirname, extname, join, normalize, sep } from "node:path";
+import { dirname, extname, join, normalize, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import spawn from "cross-spawn";
 import { claudeArgs, claudeParser } from "./cli-claude.mjs";
@@ -29,11 +29,14 @@ const okHost = (req) => LOCAL.test(req.headers.host ?? "");
 const okOrigin = (origin) => !origin || /^https?:\/\/(127\.0\.0\.1|localhost|\[::1\])(:\d+)?$/i.test(origin);
 const cors = (req, res) => { const o = req.headers.origin; if (o && okOrigin(o)) { res.setHeader("access-control-allow-origin", o); res.setHeader("vary", "origin"); } };
 
+// A CLI given as a .js/.mjs path (used by the CI smoke test's fake CLI) runs through this Node.
+const launch = (bin, args, opts) => (/\.m?js$/i.test(bin) ? spawn(process.execPath, [resolve(ROOT, bin), ...args], opts) : spawn(bin, args, opts));
+
 // ---- CLI detection (cached 30 s)
 let healthCache = { at: 0, value: null };
 const runVersion = (bin) => new Promise((resolve) => {
   try {
-    const p = spawn(bin, ["--version"], { windowsHide: true });
+    const p = launch(bin, ["--version"], { windowsHide: true });
     let out = ""; const t = setTimeout(() => { p.kill(); resolve({ found: false }); }, 8000);
     p.stdout?.on("data", (b) => (out += b)); p.on("error", () => { clearTimeout(t); resolve({ found: false }); });
     p.on("close", (code) => { clearTimeout(t); resolve(code === 0 ? { found: true, version: (out.match(/\d+\.\d+\.\d+/) ?? [out.trim()])[0] } : { found: false }); });
@@ -91,7 +94,7 @@ async function runAgent(req, res, body) {
   }
   const parser = (cli === "claude" ? claudeParser : codexParser)(send);
   let stderr = "";
-  const p = spawn(CLI_BIN[cli], args, { cwd: work, windowsHide: true, env: { ...process.env, EVIAS_DATA_DIR: data } });
+  const p = launch(CLI_BIN[cli], args, { cwd: work, windowsHide: true, env: { ...process.env, EVIAS_DATA_DIR: data } });
   let timedOut = false;
   const timer = setTimeout(() => { timedOut = true; send({ type: "error", code: "cli_failed", message: `timeout ${TIMEOUT_MS / 1000}s` }); killTree(p); }, TIMEOUT_MS);
   res.on("close", () => killTree(p));   // browser pressed Stop or closed the tab

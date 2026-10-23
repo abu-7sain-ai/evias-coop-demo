@@ -57,7 +57,12 @@ export function StoreMap() {
       case "supplier": { if (!SHELF_TYPES.has(f.type)) return neutral; const s = maps.supplierOf.get(f.id); return { fill: s ? maps.supColor.get(s)! : alpha(tok["text-2"], 0.25) }; }
       case "stock": { const s = maps.stock.get(f.id); return s ? { fill: alpha(s === "empty" ? tok.bad : s === "low" ? tok.warn : tok.good, 0.75) } : neutral; }
       case "expiry": { const n = maps.expiry.get(f.id); return n == null || n > 14 ? (SHELF_TYPES.has(f.type) ? { fill: alpha(tok.good, 0.25) } : neutral) : { fill: alpha(n <= 7 ? tok.bad : tok.warn, 0.8) }; }
-      case "traffic": { const v = traffic.get(f.id); if (v == null) return { fill: alpha(tok["text-2"], 0.06) }; const r = v / maps.tMax; return { fill: alpha(r > 0.75 ? tok.bad : r > 0.45 ? tok.warn : tok.accent, 0.15 + 0.85 * r) }; }
+      case "traffic": {
+        const v = traffic.get(f.id); if (v == null) return { fill: alpha(tok["text-2"], 0.06) };
+        const r = v / maps.tMax; const a = 0.15 + 0.85 * r;
+        // background areas that shelves overlap (deli, bakery) are drawn lighter so the shelves on top stay readable
+        return { fill: alpha(r > 0.75 ? tok.bad : r > 0.45 ? tok.warn : tok.accent, BACKGROUND.has(f.type) ? a * 0.45 : a) };
+      }
       case "contracts": { const s = maps.spaceStatus.get(f.id) ?? f.status; if (!s) return neutral; return { fill: alpha(s === "leased" ? tok.good : s === "expiring" ? tok.warn : s === "arrears" ? tok.bad : tok.info, s === "available" ? 0.35 : 0.7), hatch: s === "reserved" }; }
     }
   };

@@ -29,6 +29,7 @@ ok("#1 friend is Khalid's top repeated phone on voided invoices", top[0][0] === 
 // #1b
 const pcv = voids.filter((v) => v.flagged === "post_cash_void");
 ok("#1b 6 post-cash voids, last 30d, 12–35 min, approver EMP-007", pcv.length === 6 && pcv.every((v) => v.date >= LAST30 && v.minutes_after_sale >= 12 && v.minutes_after_sale <= 35 && v.approved_by === "EMP-007"));
+ok("#1b Khalid has exactly 6 cash voids in the last 30 days", voids.filter((v) => v.cashier_id === "EMP-001" && v.date >= LAST30 && v.payment === "cash").length === 6);
 // #2
 const tue = shifts.filter((s) => s.cashier_id === "EMP-001" && s.shift === "PM" && dow(s.date) === 2);
 const avgVar = tue.reduce((a, s) => a + s.variance, 0) / tue.length;

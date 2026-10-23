@@ -228,3 +228,10 @@ New dependencies (npm, needs network):
 14. Git-ignored `_trash/` replaces the recycle bin.
 
 Further decisions are logged in `DECISIONS.md`. When Phase 2 is complete: PR to `main`.
+
+## Additions during Phase 2 (outside the original file list, and why)
+
+- `scripts/smoke-bridge.mjs` + `tests/fixtures/fake-claude.mjs`: the CI smoke test on macOS and Windows (Q12) needs a stand-in CLI, because CI machines have no logged-in Claude Code. The fake calls the real MCP tool server.
+- `scripts/launcher/*.txt` + `.gitattributes`: keep the Windows `.bat` plain ASCII and reliable, and print the bilingual messages from UTF-8 files (Q11).
+- `src/store/chat.ts`, `src/agent/sse.ts`, `src/agent/types.ts`, `src/lib/useTokens.ts`: internal split of the agent and theme code. No new behaviour.
+- Bridge accepts a `.js`/`.mjs` CLI path (`EVIAS_CLAUDE_BIN` / `EVIAS_CODEX_BIN`), used only by tests and CI.

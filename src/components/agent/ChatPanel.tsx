@@ -104,9 +104,11 @@ export function ChatPanel({ variant, onClose }: { variant: "drawer" | "page"; on
   return (
     <div className={cx("flex min-h-0 flex-col", variant === "drawer" ? "h-full" : "card h-[calc(100vh-11rem)]")} data-testid={`chat-${variant}`}>
       <header className="flex items-center gap-2 border-b border-border px-4 py-2.5">
-        <Bot size={18} className="text-accent" />
-        <h2 className="font-semibold truncate">{t("agent.title")}</h2>
-        <ModelChip />
+        <Bot size={18} className="text-accent shrink-0" />
+        <div className="min-w-0">
+          <h2 className="font-semibold leading-tight">{t("agent.title")}</h2>
+          <div className="mt-0.5"><ModelChip /></div>
+        </div>
         <div className="ms-auto flex items-center gap-1">
           <button className="btn px-2" onClick={chat.clear} title={t("agent.clear")} aria-label={t("agent.clear")} data-testid="clear-chat"><Eraser size={15} /></button>
           {onClose && <button className="btn px-2" onClick={onClose} aria-label={t("common.close")} data-testid="close-agent"><X size={15} /></button>}

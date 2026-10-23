@@ -1,4 +1,4 @@
-import { Check, Circle } from "lucide-react";
+import { ArrowRight, Check, Circle } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Badge, Card, Stat, Table, Tabs, ViewHeader, cx } from "../components/ui";
@@ -42,8 +42,8 @@ export function Finance() {
           { key: "m", label: t("finance.match"), render: (r) => <Badge tone={r.three_way_match === "matched" ? "good" : "bad"}>{t(`match.${r.three_way_match}`)}</Badge> },
           { key: "ap", label: t("finance.approvals"), render: (r) => (
             <span className="inline-flex items-center gap-1.5 text-xs whitespace-nowrap">
-              <Step ok={r.approvals.reviewer} />{t("finance.reviewed")}<span className="text-text-2">→</span>
-              <Step ok={r.approvals.chair} />{t("finance.chair")}<span className="text-text-2">→</span>
+              <Step ok={r.approvals.reviewer} />{t("finance.reviewed")}<ArrowRight size={12} className="text-text-2 rtl:rotate-180" aria-hidden />
+              <Step ok={r.approvals.chair} />{t("finance.chair")}<ArrowRight size={12} className="text-text-2 rtl:rotate-180" aria-hidden />
               <Step ok={r.approvals.treasurer} />{t("finance.treasurer")}
             </span>) },
           { key: "st", label: t("map.panel.status"), render: (r) => <Badge tone={r.status === "posted" ? "good" : r.status === "pending_review" ? "warn" : "info"}>{t(`invStatus.${r.status}`)}</Badge> },

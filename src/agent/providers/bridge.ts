@@ -10,7 +10,7 @@ export async function bridgeHealth(url: string, fetchImpl: typeof fetch = fetch)
   try {
     const r = await fetchImpl(`${url.replace(/\/$/, "")}/health`, { signal: AbortSignal.timeout(4000) });
     if (!r.ok) return { ok: false };
-    return { ...(await r.json()), ok: true };
+    return { ...((await r.json()) as object), ok: true };
   } catch {
     return { ok: false };
   }
