@@ -1,6 +1,6 @@
 # PLAN.md — E-VIAS Coop Demo (Phase 1)
 
-Status: **waiting for approval.** No code is written until the owner approves this plan and answers the open questions (bottom of this file).
+Status: **approved 2026-10-23** — Phase 2 in progress. Answers recorded at the bottom.
 
 Sources: `spec/00`–`spec/06` plus the owner's added requirements (2026-10-23):
 
@@ -210,6 +210,21 @@ New dependencies (npm, needs network):
 
 ---
 
-## Open questions (must be answered before Phase 2)
+## Owner answers (2026-10-23)
 
-See the message that accompanies this plan. The answers will be recorded here.
+1. Copy generator to `scripts/generate-data.mjs`, patch only broken stories; `spec/03` untouched.
+2. Friend's phone excluded from all random sales → exactly 9, all by Khalid.
+3. All 6 post-cash voids inside the last 30 days, same approver.
+4. "This month" = last 30 days everywhere. "Rent collected vs due" = most recent due month (October).
+5. Remove saffron (P049) sales at B1 for the last 61 days.
+6. A02-END-C2 `traffic_base` → 90 (top-5). Sales per metre = 30-day sales of products stocked on the fixture ÷ fixture length.
+7. Queue constant calibrated: Thu 19–21 ≈ 8/lane with 6 lanes, ≈ 6 with 8. SUP-12 short deliveries = 2 (fix data).
+8. Waste story = "≈3× the other coops"; waste % = waste value ÷ sales. P052 → "روبيان مجمد 1كغ / Frozen shrimp 1kg", cost 2.400, price 3.200. Shape last 7 days: waste down, rent collected up, variance up.
+9. Anthropic: claude-sonnet-5-5 (default), claude-haiku-5-5, claude-opus-5-5 + custom field. OpenAI: gpt-4.1-mini (default), gpt-4.1, gpt-4o + custom field. Subscription: CLI default model, optional model field.
+10. IBM Plex fonts bundled locally; demo works offline.
+11. Double-click launchers; they check for Node and print an AR/EN message with download link if missing.
+12. GitHub Actions job: macOS + Windows build + smoke test.
+13. No key / no CLI login. Simulated runs + tool unit tests; report states live model answers are untested.
+14. Git-ignored `_trash/` replaces the recycle bin.
+
+Further decisions are logged in `DECISIONS.md`. When Phase 2 is complete: PR to `main`.

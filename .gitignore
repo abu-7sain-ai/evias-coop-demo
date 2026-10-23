@@ -1,0 +1,9 @@
+node_modules/
+dist/
+bridge/dist/
+_trash/
+test-results/
+playwright-report/
+*.log
+.DS_Store
+public/data/
