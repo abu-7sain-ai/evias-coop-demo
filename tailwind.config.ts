@@ -15,5 +15,6 @@ export default {
       fontFamily: { sans: ['"IBM Plex Sans"', '"IBM Plex Sans Arabic"', "system-ui", "sans-serif"] },
     },
   },
+  safelist: ["text-good", "text-warn", "text-bad", "text-info"],
   plugins: [],
 } satisfies Config;
