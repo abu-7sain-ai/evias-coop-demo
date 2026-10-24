@@ -91,6 +91,10 @@ Running log for the next session. Decisions are in `DECISIONS.md`; the approved 
 | `tests/fixtures/fake-claude.mjs` | Stand-in CLI for tests/CI; calls the real MCP server |
 | `_screenshots/reference/`, `_screenshots/current/` | Visual proof (reference = first successful build) |
 
+## 2026-10-24 — review pass
+- Ground-floor geometry overlap fixed in scripts/generate-data.mjs (backup in _backup/). Data regenerated, all checks green, reference screenshots refreshed.
+- Still untested: live model answers (needs API key or logged-in CLI) and real macOS/Windows runs (CI green on both runners).
+
 ## Session 2026-10-24
 - Owner asked to verify subscription mode with Claude Code on their Windows machine. Not possible from this cloud session (Linux container, no access to their PC). Steps 1–4 handed to the owner as commands.
 - Fixed garbled Arabic in the Windows console: `start-demo.bat` now prints English only, and `scripts/demo.mjs` prints English only on Windows. Backups are in `_backup/*.bak-2026-10-24`.

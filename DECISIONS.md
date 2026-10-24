@@ -82,3 +82,4 @@ Decisions made without asking, one line each: decision — reason. Owner answers
 - `.gitattributes` forces CRLF for `.bat` and LF for `.command`.
 - Playwright uses the pre-installed Chromium here (`PW_CHROMIUM_PATH`). CI installs its own.
 - `_trash/` (git-ignored) is the recycle bin in this environment (Q14).
+- 2026-10-24 (review, Claude/Cowork): A01/A02 gondola blocks shortened (left x17–26, right x34–43) and OFF narrowed to 5 m so no fixture overlaps the warehouse, cold store, deli or bakery; spec geometry had the overlap. Story checks, 34 unit tests and 12 e2e tests re-run green; reference screenshots refreshed.

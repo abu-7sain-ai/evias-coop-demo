@@ -162,7 +162,7 @@ add("ESC-UP","G","escalator",28,11,1.5,8,"سلم كهربائي صاعد","Escal
 add("ESC-DN","G","escalator",30.5,11,1.5,8,"سلم كهربائي نازل","Escalator down",{traffic_base:70});
 add("WH-01","G","warehouse",0,0,12,10,"المخزن والاستلام","Warehouse & receiving",{traffic_base:0});
 add("WH-COLD","G","warehouse",12,0,4,5,"المخزن البارد","Cold store",{traffic_base:0});
-add("OFF","G","office",0,10,6,6,"المكاتب","Offices",{traffic_base:0});
+add("OFF","G","office",0,10,5,6,"المكاتب","Offices",{traffic_base:0});
 for (let i = 0; i < 7; i++) add(`CH-0${i+1}`,"G","chiller",16+4*i,0,4,2,`ثلاجة ${i+1}`,`Chiller ${i+1}`,{traffic_base:(i===2||i===3)?88:65,category:"dairy",levels:5});
 for (let i = 0; i < 3; i++) add(`FR-0${i+1}`,"G","freezer",44+4.6*i,0,4.6,2,`فريزر ${i+1}`,`Freezer ${i+1}`,{traffic_base:55,category:"frozen",levels:3});
 add("DELI","G","counter",44,3,8,5,"ركن الأجبان","Deli & cheese",{traffic_base:50});
@@ -170,14 +170,18 @@ add("BAK","G","counter",52,3,8,6,"المخبز","Bakery",{traffic_base:80,catego
 const ROWS = [["A01","bev",4.0],["A02","snacks",7.4],["A03","dry",10.8],["A04","home",14.2],["A05","care",17.6],["A06","teadate",21.0]];
 for (const [row, cat, y] of ROWS) {
   const base = row === "A06" ? 70 : row === "A04" || row === "A05" ? 35 : 50;
-  add(`${row}-L1`,"G","gondola",6,y,10,1.2,`${row} يسار 1 · ${CATS[cat][0]}`,`${row} left 1 · ${CATS[cat][1]}`,{traffic_base:base-5,category:cat,levels:5,row});
-  add(`${row}-L2`,"G","gondola",16,y,10,1.2,`${row} يسار 2 · ${CATS[cat][0]}`,`${row} left 2 · ${CATS[cat][1]}`,{traffic_base:base,category:cat,levels:5,row});
-  add(`${row}-R1`,"G","gondola",34,y,11,1.2,`${row} يمين 1 · ${CATS[cat][0]}`,`${row} right 1 · ${CATS[cat][1]}`,{traffic_base:base,category:cat,levels:5,row});
-  add(`${row}-R2`,"G","gondola",45,y,11,1.2,`${row} يمين 2 · ${CATS[cat][0]}`,`${row} right 2 · ${CATS[cat][1]}`,{traffic_base:base-10,category:cat,levels:5,row});
-  add(`${row}-END-W`,"G","endcap",5,y,1,1.2,`${row} رأس غربي`,`${row} west end-cap`,{traffic_base:base-10,category:cat,levels:4,row,prime:false});
+  // Rows A01/A02 sit beside the warehouse (x<16) and the deli/bakery (x>43), so their blocks are shorter.
+  const short = row === "A01" || row === "A02";
+  const lx = short ? 17 : 6, lw = short ? 4.5 : 10;
+  const rw = short ? 4.5 : 11;
+  add(`${row}-L1`,"G","gondola",lx,y,lw,1.2,`${row} يسار 1 · ${CATS[cat][0]}`,`${row} left 1 · ${CATS[cat][1]}`,{traffic_base:base-5,category:cat,levels:5,row});
+  add(`${row}-L2`,"G","gondola",lx+lw,y,lw,1.2,`${row} يسار 2 · ${CATS[cat][0]}`,`${row} left 2 · ${CATS[cat][1]}`,{traffic_base:base,category:cat,levels:5,row});
+  add(`${row}-R1`,"G","gondola",34,y,rw,1.2,`${row} يمين 1 · ${CATS[cat][0]}`,`${row} right 1 · ${CATS[cat][1]}`,{traffic_base:base,category:cat,levels:5,row});
+  add(`${row}-R2`,"G","gondola",34+rw,y,rw,1.2,`${row} يمين 2 · ${CATS[cat][0]}`,`${row} right 2 · ${CATS[cat][1]}`,{traffic_base:base-10,category:cat,levels:5,row});
+  add(`${row}-END-W`,"G","endcap",lx-1,y,1,1.2,`${row} رأس غربي`,`${row} west end-cap`,{traffic_base:base-10,category:cat,levels:4,row,prime:false});
   add(`${row}-END-C1`,"G","endcap",26,y,1,1.2,`${row} رأس الممر الأوسط (يسار)`,`${row} centre end-cap (left)`,{traffic_base:base+25,category:cat,levels:4,row,prime:true});
   add(`${row}-END-C2`,"G","endcap",33,y,1,1.2,`${row} رأس الممر الأوسط (يمين)`,`${row} centre end-cap (right)`,{traffic_base:row === "A02" ? 90 : base+28,category:cat,levels:4,row,prime:true});   // STORY-FIX Q6: A02-END-C2 top-5 traffic
-  add(`${row}-END-E`,"G","endcap",56,y,1,1.2,`${row} رأس شرقي`,`${row} east end-cap`,{traffic_base:base-8,category:cat,levels:4,row,prime:false});
+  add(`${row}-END-E`,"G","endcap",34+2*rw,y,1,1.2,`${row} رأس شرقي`,`${row} east end-cap`,{traffic_base:base-8,category:cat,levels:4,row,prime:false});
 }
 // mezzanine
 const MZ = [
