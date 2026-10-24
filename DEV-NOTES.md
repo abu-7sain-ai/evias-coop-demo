@@ -90,3 +90,7 @@ Running log for the next session. Decisions are in `DECISIONS.md`; the approved 
 | `tests/e2e/*.ts` | Browser tests and screenshots |
 | `tests/fixtures/fake-claude.mjs` | Stand-in CLI for tests/CI; calls the real MCP server |
 | `_screenshots/reference/`, `_screenshots/current/` | Visual proof (reference = first successful build) |
+
+## Session 2026-10-24
+- Owner asked to verify subscription mode with Claude Code on their Windows machine. Not possible from this cloud session (Linux container, no access to their PC). Steps 1–4 handed to the owner as commands.
+- Fixed garbled Arabic in the Windows console: `start-demo.bat` now prints English only, and `scripts/demo.mjs` prints English only on Windows. Backups are in `_backup/*.bak-2026-10-24`.

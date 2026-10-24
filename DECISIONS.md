@@ -78,7 +78,7 @@ Decisions made without asking, one line each: decision — reason. Owner answers
 ## Tooling
 - TypeScript pinned to 5.9: npm installed TS 7 by default, whose `tsc -b` support is newer than the rest of the toolchain.
 - Node minimum is 20.19 (required by Vite 8); launchers recommend 22 LTS.
-- Windows launcher text lives in UTF-8 files (`scripts/launcher/*.txt`), printed with `type` after `chcp 65001`. This keeps the `.bat` plain ASCII, because cmd.exe parses non-ASCII inside batch blocks unreliably.
+- Windows console output is English only (`start-demo.bat` and `scripts/demo.mjs` on win32) — owner reported garbled Arabic in the Windows console (2026-10-24). macOS keeps bilingual messages from `scripts/launcher/*.txt`.
 - `.gitattributes` forces CRLF for `.bat` and LF for `.command`.
 - Playwright uses the pre-installed Chromium here (`PW_CHROMIUM_PATH`). CI installs its own.
 - `_trash/` (git-ignored) is the recycle bin in this environment (Q14).

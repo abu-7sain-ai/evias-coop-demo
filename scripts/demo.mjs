@@ -8,7 +8,9 @@ import spawn from "cross-spawn";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const PORT = Number(process.env.EVIAS_PORT || 5317);
 const URL_ = `http://127.0.0.1:${PORT}/`;
-const say = (ar, en) => console.log(`${ar}\n${en}\n`);
+// Windows consoles often garble Arabic, so print English only there (or when EVIAS_CONSOLE_LANG=en).
+const ENGLISH_ONLY = process.platform === "win32" || process.env.EVIAS_CONSOLE_LANG === "en";
+const say = (ar, en) => console.log(ENGLISH_ONLY ? `${en}\n` : `${ar}\n${en}\n`);
 
 const [maj, min] = process.versions.node.split(".").map(Number);
 if (maj < 20 || (maj === 20 && min < 19)) {
