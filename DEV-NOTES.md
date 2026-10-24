@@ -90,3 +90,7 @@ Running log for the next session. Decisions are in `DECISIONS.md`; the approved 
 | `tests/e2e/*.ts` | Browser tests and screenshots |
 | `tests/fixtures/fake-claude.mjs` | Stand-in CLI for tests/CI; calls the real MCP server |
 | `_screenshots/reference/`, `_screenshots/current/` | Visual proof (reference = first successful build) |
+
+## 2026-10-24 — review pass
+- Ground-floor geometry overlap fixed in scripts/generate-data.mjs (backup in _backup/). Data regenerated, all checks green, reference screenshots refreshed.
+- Still untested: live model answers (needs API key or logged-in CLI) and real macOS/Windows runs (CI green on both runners).
