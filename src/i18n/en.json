@@ -1,0 +1,150 @@
+{
+  "app": { "loading": "Loading demo data…", "loadError": "Could not load the demo data.", "retry": "Retry" },
+  "footer": { "disclaimer": "Standalone demo with synthetic data; no transactions on external systems." },
+  "shell": {
+    "tagline": "Co-op Platform · Demo", "coop": "Co-op", "branch": "Branch", "role": "Role", "allCoops": "All co-ops", "allBranches": "All branches",
+    "search": "Ask the agent…", "language": "Language", "theme": "Theme", "nav": "Main navigation"
+  },
+  "nav": {
+    "dashboard": "Dashboard", "agent": "Agent", "map": "Store Map", "spaces": "Spaces & Leasing", "shelves": "Shelves & Suppliers",
+    "inventory": "Inventory & Expiry", "sales": "Sales & POS", "finance": "Finance", "members": "Members", "staff": "Staff & Attendance",
+    "complaints": "Complaints", "ministry": "Ministry", "settings": "Settings"
+  },
+  "roles": {
+    "ministry_admin": "Ministry Admin", "inspector": "Inspector", "auditor": "Auditor", "coop_admin": "Coop Admin", "chair": "Chair",
+    "treasurer": "Treasurer", "accountant": "Accountant", "purchaser": "Purchaser", "leasing": "Leasing Officer", "hr": "HR",
+    "branch_manager": "Branch Manager", "cashier": "Cashier", "stockkeeper": "Stockkeeper", "supplier": "Supplier"
+  },
+  "common": {
+    "noPrev": "no prior", "noRows": "No records", "page": "Page {{page}} of {{pages}} · {{rows}} rows", "prev": "Previous", "next": "Next", "close": "Close",
+    "askAgent": "Ask the agent", "days": "{{n}} days", "dShort": "{{n}}d", "day": "day", "product": "Product", "name": "Name", "yes": "Yes", "no": "No", "kd": "KD", "remove": "Remove"
+  },
+  "kpi": {
+    "sales": "Sales (7d)", "margin": "Gross margin %", "waste": "Waste value (7d)", "void_rate": "Void/refund rate", "variance": "Shift variance (7d)",
+    "rent": "Rent collected vs due (month)", "attendance": "Attendance rate", "expiring": "Expiring within 14d (value)"
+  },
+  "dashboard": {
+    "subtitle": "Demo date {{date}} · deltas vs. the previous 7 days", "vsPrev7": "vs. previous 7 days", "rentNote": "{{cur}} vs. {{prev}}", "noData": "No data in this scope",
+    "dailySales": "Daily sales — last 30 days", "heatmap": "Hourly traffic — {{branch}}", "heatNone": "No hourly data for this branch in the demo.",
+    "heatSource": { "traffic": "Footfall sensors", "invoices": "Invoices per hour", "none": "No data" }, "priorities": "Priorities today"
+  },
+  "days": { "Sat": "Sat", "Sun": "Sun", "Mon": "Mon", "Tue": "Tue", "Wed": "Wed", "Thu": "Thu", "Fri": "Fri" },
+  "severity": { "high": "High", "medium": "Medium", "low": "Low" },
+  "map": {
+    "subtitle": "{{branch}} · 60 m × 30 m · click any fixture or shop", "ground": "Ground floor", "mezzanine": "Mezzanine", "groundShort": "Ground", "mezzanineShort": "Mezz.",
+    "layers": "Layers", "layer": { "supplier": "Supplier", "stock": "Stock", "expiry": "Expiry", "traffic": "Traffic", "contracts": "Contracts" },
+    "hour": "Hour", "queue": "Queue ≈ {{n}} per lane (6 lanes)", "svgLabel": "Branch floor plan",
+    "askAbout": "What's the status of {{code}}?", "askAboutBtn": "Ask the agent about this",
+    "legend": { "unreserved": "Not reserved", "le7": "Expires ≤ 7 days", "le14": "Expires ≤ 14 days", "gt14": "No near expiry", "low": "Low", "mid": "Medium", "high": "Busiest", "service": "Service / not leasable" },
+    "panel": {
+      "code": "Code", "type": "Type", "floor": "Floor", "status": "Status", "traffic": "Traffic score", "rank": "rank {{rank}} of {{of}}", "sales30": "Sales (30d) · per metre",
+      "supplierContract": "Supplier reservation", "supplier": "Supplier", "level": "Level", "allLevels": "All levels", "rent": "Monthly rent", "dates": "Contract", "daysLeft": "Days left",
+      "lease": "Lease", "tenant": "Tenant", "products": "Products & facings", "facings": "Facings", "shelf": "Shelf", "warehouse": "Warehouse", "nearestExpiry": "Nearest expiry"
+    }
+  },
+  "fixtureType": {
+    "entrance": "Entrance", "zone": "Zone", "checkout": "Checkout", "service": "Service", "escalator": "Escalator", "warehouse": "Warehouse", "office": "Office",
+    "chiller": "Chiller", "freezer": "Freezer", "counter": "Counter", "gondola": "Gondola", "endcap": "End-cap", "shop": "Shop", "lobby": "Lobby", "kiosk": "Kiosk", "ad": "Ad space"
+  },
+  "status": { "available": "Available", "reserved": "Reserved", "leased": "Leased", "expiring": "Expiring soon", "arrears": "In arrears", "active": "Active", "draft": "Draft" },
+  "stock": { "ok": "Full", "low": "Low", "empty": "Empty" },
+  "spaces": {
+    "subtitle": "Shops, kiosks, lobby and advertising spaces", "onlyMapped": "Space and lease data exists only for the mapped branch (Al-Waha · Central Market).",
+    "occupancy": "Occupancy", "occupiedOf": "{{n}} of {{of}} spaces", "rentRoll": "Monthly rent roll", "arrearsTotal": "Arrears total", "vacantDaysYear": "Vacant days (to date)",
+    "vacantCount": "{{n}} vacant spaces", "table": "Investment spaces", "type": "Type", "allTypes": "All types", "allStatuses": "All statuses", "area": "Area m²",
+    "monthlyRent": "Rent", "start": "Start", "end": "End", "daysToExpiry": "Days to expiry", "arrears": "Arrears", "vacantDays": "Vacant days", "daysLate": "{{n}} days late"
+  },
+  "shelves": {
+    "subtitle": "Branch median sales per metre (30d): {{median}}", "suppliers": "Supplier scores", "onTime": "On time", "short": "Short", "nearExpiry": "Near-expiry",
+    "reservations": "Shelf reservations", "fixture": "Fixture", "salesPerM": "Sales / m (30d)", "traffic": "Traffic (rank)"
+  },
+  "inventory": {
+    "subtitle": "Lots, expiry risk and suggested actions", "tabs": { "all": "All", "d7": "≤ 7 days", "d14": "≤ 14 days", "d30": "≤ 30 days", "stagnant": "Stagnant > 60 days" },
+    "atRisk": "{{n}} lots · value at risk {{v}}", "lot": "Lot", "location": "Location", "qty": "Qty", "expiry": "Expiry", "demand": "Daily demand", "surplus": "Projected surplus",
+    "valueAtRisk": "Value at risk", "action": "Suggested action", "promos": "Promotion results", "promo": "Promo", "promoType": "Type", "planned": "Planned", "sold": "Sold", "saved": "Waste avoided"
+  },
+  "action": { "hold": "Hold / remove", "bogo": "Promo: buy 1 get 1", "discount": "Promo: discount", "transfer": "Transfer", "return": "Return to supplier", "none": "No action" },
+  "promoStatus": { "ended": "Ended", "blocked": "On hold", "draft": "Draft — awaiting approval" },
+  "sales": {
+    "subtitle": "Last trading day {{day}}", "invoices": "{{n}} invoices", "lanes": "Lanes {{open}}/{{total}}", "queueAt": "{{day}} {{hour}}:00 queue ≈ {{n}}/lane",
+    "tabs": { "sales": "Sales", "voids": "Voids & refunds", "shifts": "Shifts" }, "aggregatedOnly": "This co-op reports daily totals only in the demo data; invoice-level detail exists for Al-Waha.",
+    "invoice": "Invoice", "dateTime": "Date & time", "cashier": "Cashier", "member": "Member", "unregistered": "Unregistered", "payment": "Payment", "lineVoids": "Line voids", "total": "Total",
+    "ref": "Ref.", "kind": "Kind", "void": "Void", "refund": "Refund", "date": "Date", "approver": "Approver", "reason": "Reason", "minutesAfter": "Minutes after sale", "amount": "Amount",
+    "shift": "Shift", "float": "Opening float", "expected": "Expected", "counted": "Counted", "variance": "Variance", "noSale": "No-sale opens"
+  },
+  "payment": { "cash": "Cash", "knet": "KNET", "card": "Card" },
+  "reason": { "cashier_error": "Cashier error", "customer_changed_mind": "Customer changed mind", "price_dispute": "Price dispute", "damaged": "Damaged", "expired": "Expired", "wrong_item": "Wrong item" },
+  "shift": { "AM": "Morning", "PM": "Evening" },
+  "shiftStatus": { "approved": "Approved", "disputed": "Disputed" },
+  "finance": {
+    "subtitle": "Supplier invoices, two-signature approvals, journal and rent", "invoicesCount": "{{n}} invoices", "tabs": { "invoices": "Supplier invoices", "journal": "Journal entries", "trial": "Trial balance", "rent": "Rent invoices & receipts" },
+    "invoice": "Invoice", "poGrn": "PO / GRN", "due": "Due", "match": "3-way match", "approvals": "Approvals", "reviewed": "Reviewed", "chair": "Chair", "treasurer": "Treasurer",
+    "entry": "Entry", "debit": "Debit", "credit": "Credit", "account": "Account", "totals": "Totals (Dr / Cr)", "trialNote": "Illustrative trial balance built from the demo's posted invoices and rent receipts.",
+    "paidOn": "Paid on", "paid": "Paid", "paidLate": "Paid {{n}} days late"
+  },
+  "invStatus": { "pending_review": "Pending review", "reviewed": "Reviewed", "chair_approved": "Chair approved", "posted": "Posted" },
+  "match": { "matched": "Matched", "qty_mismatch": "Qty mismatch" },
+  "account": { "cash": "Cash & bank", "inventory": "Inventory", "payables": "Supplier payables", "rentIncome": "Rent income" },
+  "members": {
+    "subtitle": "{{n}} members in demo data · co-op reports {{reported}}", "coopLevel": "Members are tracked at co-op level; the branch filter does not apply here.",
+    "inDemo": "Members (demo data)", "reported": "Co-op reports {{n}}", "voting": "Voting eligible", "ytd": "YTD purchases", "unregistered": "Unregistered sales", "unregisteredSub": "Invoices without a membership number",
+    "table": "Members", "no": "Membership no.", "class": "Class", "shares": "Shares", "shareValue": "Share value", "ytdShort": "YTD purchases", "votingShort": "Voting", "last": "Last purchase",
+    "dividendSim": "Dividend simulation", "formula": "YTD purchases × rebate % + shares × share dividend %", "rebatePct": "Purchase rebate %", "sharePct": "Share dividend %",
+    "projected": "Projected payout (demo members)", "configNote": "Demo configuration: rebate {{r}}%, share dividend {{s}}%."
+  },
+  "memberClass": { "working": "Working", "associate": "Associate" },
+  "staff": {
+    "subtitle": "Employees, schedules and biometric punches", "ghostBanner": "{{n}} salaried employees have zero punches in 90 days (salaries {{kd}} / month) — pattern that needs review.",
+    "employees": "Employees", "rate30": "Attendance rate (30d)", "lateEvents": "Late arrivals (90d)", "zeroPunch": "Zero-punch employees",
+    "tabs": { "grid": "Attendance grid (28 days)", "employees": "Employees", "punches": "Punches" }, "id": "ID", "role": "Role", "hq": "Head office", "salary": "Salary",
+    "scheduled": "Scheduled", "present": "Present", "flags": "Flags", "zeroPunchFlag": "Zero punches", "lateOn": "Late every {{day}}", "in": "In", "out": "Out", "lateMin": "Late (min)", "device": "Device"
+  },
+  "att": { "present": "Present", "late": "Late", "absent": "Absent", "no_punch_out": "No punch-out", "nopunch": "No record", "off": "Day off" },
+  "attShort": { "present": "", "late": "L", "absent": "A", "no_punch_out": "O", "nopunch": "×", "off": "" },
+  "empRole": { "cashier": "Cashier", "stockkeeper": "Stockkeeper", "branch_manager": "Branch Manager", "purchaser": "Purchaser", "accountant": "Accountant", "hr": "HR", "leasing": "Leasing Officer", "driver": "Delivery Driver" },
+  "complaints": {
+    "subtitle": "Tickets, SLA and clusters", "cluster": "{{n}} complaints on one lot: {{lot}}", "askCluster": "Why are there yogurt complaints?", "ticket": "Ticket", "subject": "Subject",
+    "category": "Category", "priority": "Priority", "assignee": "Assignee", "opened": "Opened", "sla": "SLA", "breached": "Breached", "withinSla": "Within SLA"
+  },
+  "complaintCat": { "product_quality": "Product quality", "delivery": "Delivery", "price": "Price", "staff": "Staff" },
+  "complaintStatus": { "open": "Open", "resolved": "Resolved", "escalated": "Escalated" },
+  "ministry": {
+    "banner": "Illustrative view — no live connection to ministry systems", "subtitle": "Network comparison of the three demo co-ops (last 90 days)", "compare": "Co-op comparison",
+    "metric": "Metric", "networkAvg": "Network average", "compareNote": "Red = worst co-op, with its ratio to the other co-ops. Shift variance, rent arrears and vacant spaces exist only where the demo has that data.",
+    "metrics": { "sales": "Sales", "waste_pct": "Waste % of sales", "void_rate": "Void/refund rate", "variance": "Shift variance", "subsidized_breaches": "Subsidized price breaches", "rent_arrears": "Rent arrears", "attendance": "Attendance", "vacant_spaces": "Vacant spaces" },
+    "alerts": "Alerts", "notes": "Inspector notes", "breaches": "Subsidized price breaches", "cap": "Cap price", "soldAt": "Sold at", "since": "Since", "invoices": "Invoices",
+    "note": { "ghosts": "{{n}} employees on payroll with no biometric punches — request HR files and site visit.", "waste": "Waste is ≈ {{x}}× the other co-ops — review write-off approvals.", "rice": "Subsidized basmati rice sold above cap at {{n}} branches — issue notices.", "arrears": "{{n}} overdue rent invoices on one tenant — follow escalation at 60 days." }
+  },
+  "settings": {
+    "appearance": "Appearance", "light": "Light", "dark": "Dark", "agent": "Agent connection", "connection": "Connection mode",
+    "mode": { "bridge": "Subscription (local bridge)", "api": "API key" }, "provider": "Provider", "providers": { "anthropic": "Anthropic", "openai": "OpenAI" },
+    "apiKey": "API key", "keyPlaceholder": "Paste the API key", "save": "Save", "clearKey": "Clear key", "keySet": "Key set (sk-…{{last4}})", "noKey": "No key",
+    "keyHelp": { "anthropic": "The key stays in this browser only and is sent only to api.anthropic.com. Use a demo key with a spending limit.", "openai": "The key stays in this browser only and is sent only to api.openai.com. Use a demo key with a spending limit." },
+    "model": "Model", "default": "default", "customModel": "Custom model…", "customModelPh": "custom model id", "use": "Use",
+    "bridgeExplain": "Uses your Claude or ChatGPT subscription through the CLI installed on this computer. The local bridge only listens on this computer (127.0.0.1); no API key is needed.",
+    "cliLabel": "Command-line tool", "cli": { "claude": "Claude Code CLI", "codex": "Codex CLI" },
+    "bridgeNotRunning": "Bridge not running", "bridgeOk": "Connected · {{cli}} {{version}}", "cliMissing": "{{cli}} not found on this computer", "testConnection": "Test connection",
+    "bridgeModel": "Model (optional)", "bridgeModelPh": "empty = CLI default", "bridgeUrl": "Bridge address", "howToStart": "How to start the bridge",
+    "startMac": "macOS: double-click start-demo.command in the demo folder.", "startWin": "Windows: double-click start-demo.bat in the demo folder.", "startCli": "Or from a terminal in the demo folder:",
+    "loginNote": "Log in once in the CLI itself (run claude or codex in a terminal); the demo never sees your credentials.",
+    "demoData": "Demo data", "reset": "Reset demo data", "resetHelp": "Reloads the JSON files and clears the chat."
+  },
+  "agent": {
+    "name": "Agent", "title": "الوكيل · E-VIAS Intelligence", "subtitle": "Ask about the demo data in Arabic or English", "intro": "Ask about sales, stock, expiry, shelves, spaces, suppliers, staff, complaints, members or ministry indicators. Every number comes from the demo data.",
+    "needKey": "Add an API key to start", "openSettings": "Open settings", "bridgeDown": "The local bridge is not reachable", "bridgeHow": "Start the demo with start-demo.command (macOS) or start-demo.bat (Windows), then try again. Address:",
+    "checking": "Checking…", "thinking": "Thinking…", "working": "Checking the data… ({{n}} queries)", "stopped": "Stopped.", "sources": "Sources", "more": "More…", "less": "Less",
+    "context": "Context", "placeholder": "Type your question…", "micSoon": "Coming soon", "stop": "Stop", "send": "Send", "clear": "Clear chat",
+    "tokensLast": "Last answer: {{i}} in · {{o}} out tokens", "tokensTotal": "Session: {{i}} / {{o}}",
+    "err": {
+      "invalid_key": "Invalid key", "rate_limited": "Rate limited, retry shortly", "network": "Network error: {{message}}", "http": "Error {{status}}: {{message}}", "no_key": "No API key — add one in Settings.",
+      "bridge_down": "Local bridge not reachable — start it with the launcher.", "cli_missing": "The selected CLI is not installed on this computer.", "cli_not_logged_in": "The CLI is not logged in — run it once in a terminal and log in.",
+      "cli_failed": "The CLI failed: {{message}}", "aborted": "Stopped."
+    }
+  },
+  "scenarios": [
+    "What's the status of the second shelf?", "Is any cashier favouring someone?", "Why are there yogurt complaints?", "Are we selling anything at a loss?", "Who is late on rent?", "When do we need an extra cashier?",
+    "Who approves his voids?", "Why is the cash drawer short?", "What happened with the juice promo?", "Any dead shelf?", "Which supplier shelves deserve a higher price?",
+    "How long until Ramadan and what do we need?", "Rate Frozen Meats Co.", "How many members and what dividend?", "Who sells subsidized goods above cap?", "Which coop has abnormal waste?",
+    "Are there ghost employees?", "How many vacant spaces across coops?"
+  ]
+}

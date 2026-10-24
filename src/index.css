@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Colour tokens — spec/01-SPEC.md §1. Stored as "r g b" so Tailwind can apply alpha. */
+:root, [data-theme="light"] {
+  --bg: 245 246 247; --surface: 255 255 255; --surface-2: 236 238 240; --border: 221 224 228;
+  --text: 28 30 33; --text-2: 95 102 114; --accent: 15 92 77; --accent-soft: 227 241 237;
+  --good: 30 142 90; --warn: 183 121 31; --bad: 192 57 43; --info: 44 90 160;
+  color-scheme: light;
+}
+[data-theme="dark"] {
+  --bg: 28 30 33; --surface: 37 40 44; --surface-2: 46 49 54; --border: 58 62 68;
+  --text: 236 238 240; --text-2: 160 167 177; --accent: 47 165 140; --accent-soft: 22 60 52;
+  --good: 60 201 138; --warn: 224 169 74; --bad: 240 102 90; --info: 108 155 232;
+  color-scheme: dark;
+}
+html, body, #root { height: 100%; }
+body { @apply bg-bg text-text font-sans antialiased; font-size: 14px; }
+html[lang="ar"] body { font-family: "IBM Plex Sans Arabic", "IBM Plex Sans", system-ui, sans-serif; }
+@layer components {
+.num { font-variant-numeric: tabular-nums; }
+.card { @apply bg-surface border border-border rounded-xl; }
+.btn, .btn-accent { @apply inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium border disabled:opacity-50 disabled:cursor-not-allowed; }
+.btn { @apply border-border bg-surface hover:bg-surface-2; }
+.btn-accent { @apply bg-accent text-white border-accent hover:bg-accent/90; }
+.input { @apply rounded-lg border border-border bg-surface px-2.5 py-1.5 text-sm outline-none focus:border-accent focus:ring-1 focus:ring-accent; }
+.chip { @apply inline-flex items-center gap-1 rounded-full border border-border px-2.5 py-0.5 text-xs whitespace-nowrap; }
+.tbl { @apply w-full text-sm; }
+.tbl th { @apply bg-surface-2 text-text-2 font-medium text-start px-3 py-2 whitespace-nowrap; }
+.tbl td { @apply px-3 py-2 border-t border-border align-top; }
+.tbl td [dir="ltr"], .tbl td.num { white-space: nowrap; }
+.tbl tr.clickable:hover td { @apply bg-surface-2 cursor-pointer; }
+.md table { @apply my-2 w-full text-xs border border-border; }
+.md th { @apply bg-surface-2 px-2 py-1 text-start; }
+.md td { @apply px-2 py-1 border-t border-border; }
+.md p { @apply my-1.5; }
+.md ul { @apply list-disc ps-5 my-1.5; }
+.md ol { @apply list-decimal ps-5 my-1.5; }
+.md code { @apply bg-surface-2 rounded px-1 text-xs; }
+.md strong { @apply font-semibold; }
+}
+.scroll-thin::-webkit-scrollbar { width: 8px; height: 8px; }
+.scroll-thin::-webkit-scrollbar-thumb { @apply bg-border rounded; }
